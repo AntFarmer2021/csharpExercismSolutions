@@ -11,13 +11,6 @@ static class AssemblyLine
         int s when (s == 10) => 0.77,
         _ => throw new ArgumentOutOfRangeException(),
     };
-    public static double ProductionRatePerHour(int speed)
-    {
-        SuccessRate(speed) * speed * _speedMultiplier;
-    }
-
-    public static int WorkingItemsPerMinute(int speed)
-    {
-        ProductionRatePerHour(speed) / 60;
-    }
+    public static double ProductionRatePerHour(int speed) => SuccessRate(speed) * speed * _speedMultiplier;
+    public static int WorkingItemsPerMinute(int speed) => (int)ProductionRatePerHour(speed) / 60;
 }
